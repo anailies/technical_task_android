@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.anailies.userapp"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+
+    implementation "androidx.core:core-ktx:${coreKtxVersion}"
+    implementation "androidx.appcompat:appcompat:${appCompatVersion}"
+    implementation "com.google.android.material:material:${materialVersion}"
+    implementation "androidx.constraintlayout:constraintlayout:${constraintVersion}"
+
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationFragmentVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationUiVersion"
+
+    // Retrofit & OkHttp
+    implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${gsonVersion}"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:${retrofitRxAdapterVersion}"
+    implementation("com.squareup.okhttp3:logging-interceptor:${okHttpLoggingInterceptorVersion}")
+
+    //Rx
+    implementation "io.reactivex.rxjava3:rxkotlin:${rxKotlinVersion}"
+    implementation "io.reactivex.rxjava3:rxandroid:${rxAndroidVersion}"
+    implementation "io.reactivex.rxjava3:rxjava:${rxVersion}"
+
+    //Hilt
+    implementation("com.google.dagger:hilt-android:${hiltAndroidVersion}")
+    kapt("com.google.dagger:hilt-android-compiler:${hiltCompilerVersion}")
+
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "org.mockito:mockito-core:3.9.0"
+    testImplementation 'org.mockito.kotlin:mockito-kotlin:3.2.0'
+    testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0'
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.9.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+}

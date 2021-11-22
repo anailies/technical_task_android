@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">UserApp</string>
+    <string name="generic_error">Sorry, something went wrong</string>
+    <string name="name_label">Name</string>
+    <string name="email_label">Email</string>
+    <string name="add_user">Add user</string>
+    <string name="enter_user_info">Please enter user info</string>
+    <string name="delete_user_dialog_title">Are you sure you want to remove this user?</string>
+    <string name="delete_user_dialog_action_accept">Yes</string>
+    <string name="delete_user_dialog_action_cancel">No</string>
+</resources>
